@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo khóa học mới - LearnHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/layout/admin.css">
+    <link rel="stylesheet" href="../css/pages/create-course.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <style>
+        .custom-category-wrap { display:none; margin-top:8px; }
+        .custom-category-wrap input {
+            width:100%; padding:8px 12px; border:1px solid #d1d5db;
+            border-radius:8px; font-size:14px;
+        }
+        .custom-category-wrap small { color:#6b7280; font-size:12px; margin-top:4px; display:block; }
+
+        /* ✅ Fix toggle switch - dùng JS state thay vì checkbox */
+        .switch-btn {
+            position: relative;
+            width: 44px;
+            height: 24px;
+            background: #cbd5e1;
+            border-radius: 24px;
+            cursor: pointer;
+            transition: background .3s;
+            flex-shrink: 0;
+        }
+        .switch-btn::after {
+            content: "";
+            position: absolute;
+            width: 18px;
+            height: 18px;
+            background: #fff;
+            border-radius: 50%;
+            top: 3px;
+            left: 3px;
+            transition: transform .3s;
+        }
+        .switch-btn.active {
+            background: #2563eb;
+        }
+        .switch-btn.active::after {
+            transform: translateX(20px);
+        }
+    </style>
+</head>
+<body>
+<script src="../js/header.js"></script>
+<script src="../js/auth.js"></script>
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-courses.html">Khóa học</a>
+            <a href="manage-lessons.html">Bài giảng</a>
+            <a href="manage-users.html">Người dùng</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div>
+                        <h4 id="profileName"></h4>
+                        <p id="profileEmail"></p>
+                    </div>
+                </div>
+                <div class="profile-item">
+                    <i class="fa-regular fa-user"></i> <a href="../html/admin/profile.html">Hồ sơ cá nhân</a>
+                </div>
+                <div class="profile-item logout" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <form id="courseForm" class="form-card">
+        <h2>Tạo khóa học mới</h2>
+        <p>Nhập thông tin để tạo khóa học và lưu vào hệ thống.</p>
+
+        <div class="form-group">
+            <label>Tên khóa học</label>
+            <input type="text" name="title" required>
+        </div>
+
+        <div class="form-group">
+            <label>Giảng viên</label>
+            <div class="instructor-input-wrapper">
+                <span id="gvAvatarIcon" class="instructor-avatar"></span>
+                <input type="text" id="instructorName" name="instructor" readonly class="instructor-input">
+                <span class="instructor-lock-icon"><i class="fa-solid fa-lock"></i></span>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="form-group">
+                <label>Danh mục</label>
+                <select name="category" id="categorySelect">
+                    <option value="Lập trình">Lập trình</option>
+                    <option value="Thiết kế">Thiết kế</option>
+                    <option value="Marketing">Marketing</option>
+                    <option value="Ngoại ngữ">Ngoại ngữ</option>
+                    <option value="Kỹ năng mềm">Kỹ năng mềm</option>
+                    <option value="Tài chính - Đầu tư">Tài chính - Đầu tư</option>
+                    <option value="Khởi nghiệp">Khởi nghiệp</option>
+                    <option value="Tin học văn phòng">Tin học văn phòng</option>
+                    <option value="__custom__">➕ Khác (nhập tùy chỉnh)</option>
+                </select>
+                <div class="custom-category-wrap" id="customCategoryWrap">
+                    <input type="text" id="customCategoryInput" placeholder="Nhập tên danh mục...">
+                    <small>Danh mục này sẽ được lưu vào khóa học</small>
+                </div>
+            </div>
+            <div class="form-group">
+                <label>Cấp độ</label>
+                <select name="level">
+                    <option value="Cơ bản">Cơ bản</option>
+                    <option value="Trung bình">Trung bình</option>
+                    <option value="Nâng cao">Nâng cao</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Mô tả ngắn</label>
+            <input type="text" name="shortDesc">
+        </div>
+
+        <div class="form-group">
+            <label>Mô tả chi tiết</label>
+            <textarea name="description"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label>Ảnh thumbnail khóa học</label>
+            <div class="upload-box" onclick="document.getElementById('fileInput').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <div>Nhấn để tải lên</div>
+                <small>PNG, JPG tối đa 5MB</small>
+                <input type="file" id="fileInput" hidden accept="image/*">
+                <img id="preview" class="preview-img">
+            </div>
+        </div>
+
+        <!-- ✅ Toggle dùng div thuần, không dùng checkbox -->
+        <div class="toggle">
+            <span>Trạng thái xuất bản</span>
+            <div class="switch-btn" id="publishedBtn" onclick="togglePublished()"></div>
+        </div>
+
+        <div class="button-group">
+            <button type="submit" class="btn btn-primary">Lưu khóa học</button>
+            <button type="reset" class="btn btn-secondary" onclick="resetPublished()">Hủy</button>
+        </div>
+    </form>
+</div>
+
+<script>
+    // ✅ State toggle published
+    let isPublished = false;
+
+    function togglePublished() {
+        isPublished = !isPublished;
+        document.getElementById('publishedBtn').classList.toggle('active', isPublished);
+    }
+
+    function resetPublished() {
+        isPublished = false;
+        document.getElementById('publishedBtn').classList.remove('active');
+    }
+
+    function setPublished(val) {
+        isPublished = !!val;
+        document.getElementById('publishedBtn').classList.toggle('active', isPublished);
+    }
+
+    // Danh mục tùy chỉnh
+    document.getElementById("categorySelect").addEventListener("change", function() {
+        const wrap = document.getElementById("customCategoryWrap");
+        if (this.value === "__custom__") {
+            wrap.style.display = "block";
+            document.getElementById("customCategoryInput").focus();
+        } else {
+            wrap.style.display = "none";
+        }
+    });
+</script>
+<script src="../js/create-course.js"></script>
+</body>
+</html>

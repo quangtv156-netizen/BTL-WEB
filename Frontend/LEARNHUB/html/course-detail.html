@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết khóa học - LearnHub</title>
+    <link rel="stylesheet" href="../css/base/global.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/pages/course-detail.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+<div id="toast"></div>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div><h4 id="profileName"></h4><p id="profileEmail"></p></div>
+                </div>
+                <div class="profile-item"><i class="fa-regular fa-user"></i> <a href="profile.html">Hồ sơ cá nhân</a></div>
+                <div class="profile-item"><i class="fa-regular fa-bookmark"></i> <a href="my-courses.html">Khóa học đã đăng ký</a></div>
+                <div class="profile-item"><i class="fa-regular fa-chart-bar"></i> <a href="progress.html">Tiến Độ Học Tập</a></div>
+                <div class="profile-item"><i class="fa-regular fa-heart"></i> <a href="favorites.html">Khóa Học Yêu Thích</a></div>
+                <div class="profile-item"><i class="fa-regular fa-gear"></i> <a href="settings.html">Cài Đặt tài khoản</a></div>
+                <div class="profile-item logout" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="course-container">
+    <a href="courses.html" class="back-link">← Quay lại danh sách khóa học</a>
+    <div class="course-layout">
+        <div class="course-main">
+            <img id="thumbnail" class="course-thumbnail" alt="thumbnail">
+            <h1 id="courseTitle"></h1>
+            <p class="course-sub" id="courseSub"></p>
+            <div class="course-author">
+                <span id="level" class="badge"></span>
+            </div>
+            <div class="course-rating">
+                <span class="star">★</span>
+                <strong id="rating"></strong>
+                <span class="student-count" id="studentCount">0 học viên</span>
+            </div>
+
+            <div class="course-tabs">
+                <button class="tab active" data-tab="overview">Tổng quan</button>
+                <button class="tab" data-tab="lessons">Bài giảng</button>
+                <button class="tab" data-tab="reviews">Đánh giá</button>
+                <button class="tab" data-tab="comments">Bình luận</button>
+            </div>
+
+            <div class="tab-panel" id="overview">
+                <h3>Mô tả khóa học</h3>
+                <p id="description"></p>
+            </div>
+
+            <div class="tab-panel hidden" id="lessons">
+                <h3>Danh sách bài giảng</h3>
+                <div id="lessonList"></div>
+            </div>
+
+            <div class="tab-panel hidden" id="reviews">
+                <h3>Đánh giá khóa học</h3>
+                <div id="reviewSummary"></div>
+                <form id="reviewForm" class="review-form-box">
+                    <div class="avatar" id="userAvatarReview"></div>
+                    <div class="form-content">
+                        <div class="rating-stars" id="reviewStars">
+                            <i class="fas fa-star" data-value="1" style="color:#d1d5db"></i>
+                            <i class="fas fa-star" data-value="2" style="color:#d1d5db"></i>
+                            <i class="fas fa-star" data-value="3" style="color:#d1d5db"></i>
+                            <i class="fas fa-star" data-value="4" style="color:#d1d5db"></i>
+                            <i class="fas fa-star" data-value="5" style="color:#d1d5db"></i>
+                        </div>
+                        <button type="submit" class="btn-submit yellow">Gửi đánh giá</button>
+                    </div>
+                </form>
+                <div id="reviewList"></div>
+            </div>
+
+            <div class="tab-panel hidden" id="comments">
+                <h3>Bình luận khóa học</h3>
+                <form id="commentForm" class="comment-form-box">
+                    <div class="avatar" id="userAvatarComment"></div>
+                    <div class="form-content">
+                        <textarea id="commentInput" placeholder="Viết bình luận của bạn..." rows="4"></textarea>
+                        <button type="submit" class="btn-submit">Gửi bình luận</button>
+                    </div>
+                </form>
+                <div id="commentList"></div>
+            </div>
+        </div>
+
+        <div class="course-sidebar">
+            <div class="sidebar-card">
+                <h2 class="price">Miễn phí</h2>
+                <p class="access-text">Truy cập đầy đủ khóa học</p>
+                <button id="enrollBtn" class="btn-primary full">Bắt đầu học</button>
+                <button id="favoriteBtn" class="btn-outline full">Thêm vào yêu thích</button>
+                <div class="divider"></div>
+                <div class="info-block">
+                    <h4>Thông tin khóa học</h4>
+                    <p><span id="lessonCount">0</span> bài giảng</p>
+                    <p><span>12 tuần</span></p>
+                    <p>Cập nhật lần cuối: <span id="updatedAt">—</span></p>
+                </div>
+                <div class="divider"></div>
+                <div class="include-block">
+                    <h4>Khóa học bao gồm</h4>
+                    <ul>
+                        <li>✓ Video bài giảng HD</li>
+                        <li>✓ Tài liệu học tập</li>
+                        <li>✓ Bài tập thực hành</li>
+                        <li>✓ Chứng chỉ hoàn thành</li>
+                        <li>✓ Truy cập trọn đời</li>
+                        <li>✓ Hỗ trợ từ giảng viên</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/auth.js"></script>
+<script src="../js/course-detail.js"></script>
+<script src="../js/bl.js"></script>
+<script src="../js/baigiang.js"></script>
+</body>
+</html>

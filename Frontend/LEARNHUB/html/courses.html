@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khóa học - LearnHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/base/global.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/forms.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/pages/courses.css">
+</head>
+<body>
+<script src="../js/header.js"></script>
+<script src="../js/auth.js"></script>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div>
+                        <h4 id="profileName"></h4>
+                        <p id="profileEmail"></p>
+                    </div>
+                </div>
+                <div class="profile-item"><i class="fa-regular fa-user"></i> <a href="profile.html">Hồ sơ cá nhân</a></div>
+                <div class="profile-item"><i class="fa-regular fa-bookmark"></i> <a href="my-courses.html">Khóa học đã đăng ký</a></div>
+                <div class="profile-item"><i class="fa-regular fa-chart-bar"></i> <a href="progress.html">Tiến Độ Học Tập</a></div>
+                <div class="profile-item"><i class="fa-regular fa-heart"></i> <a href="favorites.html">Khóa Học Yêu Thích</a></div>
+                <div class="profile-item"><i class="fa-regular fa-gear"></i> <a href="settings.html">Cài Đặt tài khoản</a></div>
+                <div class="profile-item logout" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="courses-wrapper">
+    <aside class="sidebar">
+        <h3>Bộ lọc</h3>
+
+        <div class="filter-group">
+            <label>Danh mục</label>
+            <select id="categoryFilter">
+                <option value="">Tất cả danh mục</option>
+                <option value="Lập trình">Lập trình</option>
+                <option value="Thiết kế">Thiết kế</option>
+                <option value="Marketing">Marketing</option>
+                <option value="Ngoại ngữ">Ngoại ngữ</option>
+                <option value="Kỹ năng mềm">Kỹ năng mềm</option>
+                <option value="Tài chính - Đầu tư">Tài chính - Đầu tư</option>
+                <option value="Khởi nghiệp">Khởi nghiệp</option>
+                <option value="Tin học văn phòng">Tin học văn phòng</option>
+            </select>
+        </div>
+
+        <div class="filter-group">
+            <label>Cấp độ</label>
+            <!-- ✅ Đổi từ checkbox → radio để chỉ chọn được 1 cấp độ -->
+            <label class="check-item"><input type="radio" name="level" value="Cơ bản"> Cơ bản</label>
+            <label class="check-item"><input type="radio" name="level" value="Trung bình"> Trung bình</label>
+            <label class="check-item"><input type="radio" name="level" value="Nâng cao"> Nâng cao</label>
+        </div>
+
+        <div class="filter-group">
+            <label>Đánh giá</label>
+            <select id="ratingFilter">
+                <option value="">Tất cả</option>
+                <option value="4">Từ 4 sao trở lên</option>
+                <option value="3">Từ 3 sao trở lên</option>
+            </select>
+        </div>
+
+        <button id="applyFilter" class="btn btn-primary btn-full">Áp dụng</button>
+        <button id="clearFilter" class="btn btn-outline btn-full">Xóa lọc</button>
+    </aside>
+
+    <section class="courses-content">
+        <h1>Tìm kiếm khóa học</h1>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Nhập tên khóa học hoặc từ khóa...">
+            <button id="searchBtn" class="btn btn-primary">Tìm kiếm</button>
+        </div>
+
+        <p class="result-text">Kết quả: <span id="resultCount">0</span> khóa học</p>
+
+        <div class="course-grid" id="courseGrid"></div>
+    </section>
+</main>
+
+<script src="../js/main.js"></script>
+<script src="../js/courses-rating.js"></script>
+<script src="../js/filter.js"></script>
+</body>
+</html>

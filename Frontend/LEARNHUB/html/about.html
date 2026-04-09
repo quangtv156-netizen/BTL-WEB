@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Về LearnHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/base/global.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/pages/about.css">
+</head>
+<body>
+<script src="../js/header.js"></script>
+<script src="../js/auth.js"></script>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div><h4 id="profileName"></h4><p id="profileEmail"></p></div>
+                </div>
+                <div class="profile-item"><i class="fa-regular fa-user"></i> <a href="profile.html">Hồ sơ cá nhân</a></div>
+                <div class="profile-item"><i class="fa-regular fa-bookmark"></i> <a href="my-courses.html">Khóa học đã đăng ký</a></div>
+                <div class="profile-item"><i class="fa-regular fa-chart-bar"></i> <a href="progress.html">Tiến Độ Học Tập</a></div>
+                <div class="profile-item"><i class="fa-regular fa-heart"></i> <a href="favorites.html">Khóa Học Yêu Thích</a></div>
+                <div class="profile-item"><i class="fa-regular fa-gear"></i> <a href="settings.html">Cài Đặt tài khoản</a></div>
+                <div class="profile-item logout" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<section class="about-hero">
+    <h1>Về LearnHub</h1>
+    <p>Nền tảng học trực tuyến giúp bạn nâng cao kỹ năng mọi lúc, mọi nơi.</p>
+    <a href="courses.html" class="btn-primary">Khám phá khóa học</a>
+</section>
+
+<section class="feature-grid">
+    <div class="feature-card">
+        <i class="fas fa-clock"></i>
+        <h3>Học mọi lúc</h3>
+        <p>Nội dung linh hoạt, truy cập bất kỳ khi nào bạn muốn.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-award"></i>
+        <h3>Giảng viên chất lượng</h3>
+        <p>Được hướng dẫn bởi các chuyên gia hàng đầu.</p>
+    </div>
+    <div class="feature-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Theo dõi tiến độ</h3>
+        <p>Hoàn thành bài học và kiểm soát lộ trình dễ dàng.</p>
+    </div>
+</section>
+
+<section class="mission-grid">
+    <div class="mission-card">
+        <h3><i class="fas fa-bullseye"></i> Sứ mệnh</h3>
+        <p>LearnHub cam kết mang đến nền tảng học tập trực tuyến chất lượng cao, dễ tiếp cận và hiệu quả cho mọi người.</p>
+    </div>
+    <div class="mission-card">
+        <h3><i class="fas fa-eye"></i> Tầm nhìn</h3>
+        <p>Trở thành nền tảng học trực tuyến hàng đầu tại Việt Nam, nơi mọi người có thể phát triển bản thân và sự nghiệp.</p>
+    </div>
+</section>
+
+<section class="stats-grid">
+    <div class="stat-card"><h2>500+</h2><p>Khóa học</p></div>
+    <div class="stat-card"><h2>10.000+</h2><p>Học viên</p></div>
+    <div class="stat-card"><h2>100+</h2><p>Giảng viên</p></div>
+</section>
+
+<footer>© 2026 LearnHub. Tất cả quyền được bảo lưu.</footer>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

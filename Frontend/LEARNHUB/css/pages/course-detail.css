@@ -1,0 +1,427 @@
+/* ================================
+   COURSE DETAIL - FULL CSS
+   (gộp từ inline style + file css)
+================================ */
+
+/* ---- UTILITY ---- */
+.hidden { display: none; }
+
+/* ---- TOAST ---- */
+#toast {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  background: #1f2937;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  opacity: 0;
+  transition: opacity 0.3s, transform 0.3s;
+  z-index: 9999;
+  pointer-events: none;
+}
+#toast.show {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* ================================
+   PAGE LAYOUT
+================================ */
+body {
+  background: #f6f7fb;
+}
+
+.course-container {
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 25px;
+  text-decoration: none;
+  color: #2563eb;
+  font-weight: 500;
+}
+
+.course-layout {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+}
+
+/* ================================
+   COURSE MAIN (LEFT)
+================================ */
+.course-main {
+  flex: 2;
+}
+
+.course-thumbnail {
+  width: 100%;
+  height: 420px;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 20px;
+}
+
+#courseTitle {
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.course-sub {
+  color: #555;
+  margin-bottom: 15px;
+}
+
+.course-author {
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.badge {
+  background: #fff3cd;
+  color: #856404;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 13px;
+  margin-left: 10px;
+}
+
+.course-rating {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.star {
+  color: #facc15;
+  font-size: 18px;
+}
+
+.student-count {
+  color: #666;
+  font-size: 14px;
+}
+
+/* ================================
+   TABS
+================================ */
+.course-tabs {
+  display: flex;
+  gap: 25px;
+  border-bottom: 1px solid #ddd;
+  margin-bottom: 20px;
+}
+
+.tab {
+  background: none;
+  border: none;
+  padding-bottom: 10px;
+  cursor: pointer;
+  font-weight: 500;
+  color: #666;
+}
+
+.tab.active {
+  color: #2563eb;
+  border-bottom: 3px solid #2563eb;
+}
+
+.tab-panel {
+  line-height: 1.7;
+  color: #444;
+}
+
+/* ================================
+   SIDEBAR (RIGHT)
+================================ */
+.course-sidebar {
+  flex: 1;
+}
+
+.sidebar-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  position: sticky;
+  top: 20px;
+}
+
+.price {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+
+.access-text {
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.full {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: white;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-outline {
+  background: white;
+  border: 1px solid #2563eb;
+  color: #2563eb;
+  padding: 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.divider {
+  height: 1px;
+  background: #eee;
+  margin: 20px 0;
+}
+
+.info-block p {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+.include-block ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.include-block li {
+  margin: 6px 0;
+  font-size: 14px;
+}
+
+/* ================================
+   LESSON LIST
+================================ */
+.lesson-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #fafafa;
+}
+
+.lesson-item strong {
+  font-size: 15px;
+}
+
+.lesson-item p {
+  margin: 4px 0 0;
+  font-size: 13px;
+  color: #666;
+}
+
+/* ================================
+   AVATAR (dùng chung)
+================================ */
+.avatar {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #6366f1;
+  color: white;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* ================================
+   COMMENT FORM & LIST
+================================ */
+.comment-form-box {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0 32px;
+  padding: 20px;
+  background: #f9fafb;
+  border-radius: 12px;
+  border: 1px solid #e5e7eb;
+}
+
+.comment-form-box .avatar {
+  width: 48px;
+  height: 48px;
+  background: #3b82f6;
+  font-size: 1.4rem;
+}
+
+.form-content {
+  flex: 1;
+  min-width: 0;
+}
+
+#commentInput,
+#reviewInput {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 90px;
+  box-sizing: border-box;
+}
+
+#commentInput:focus,
+#reviewInput:focus {
+  outline: none;
+  border-color: #3b82f6;
+}
+
+.btn-submit {
+  margin-top: 12px;
+  background: #3b82f6;
+  color: white;
+  border: none;
+  padding: 12px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.btn-submit:hover {
+  background: #2563eb;
+}
+
+/* Comment Items */
+#commentList .comment-item,
+#reviewList .comment-item {
+  display: flex;
+  gap: 16px;
+  padding: 20px 0;
+  border-bottom: 1px solid #eee;
+}
+
+#commentList .comment-item:last-child,
+#reviewList .comment-item:last-child {
+  border-bottom: none;
+}
+
+.comment-content {
+  flex: 1;
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 6px;
+}
+
+.comment-header .name {
+  font-weight: 600;
+  color: #1f2937;
+}
+
+.comment-header .date,
+.comment-time {
+  color: #6b7280;
+  font-size: 0.875rem;
+}
+
+.comment-text {
+  color: #374151;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  font-size: 14px;
+}
+
+.comment-actions {
+  font-size: 12px;
+  color: #6b7280;
+  cursor: pointer;
+}
+
+.comment-actions span {
+  margin-left: 10px;
+}
+
+/* ================================
+   REVIEW FORM & SUMMARY
+================================ */
+.review-form-box {
+  display: flex;
+  gap: 16px;
+  margin: 24px 0 32px;
+  padding: 20px;
+  background: #fffbeb;
+  border-radius: 12px;
+  border: 1px solid #fde68a;
+}
+
+.review-form-box .avatar {
+  width: 48px;
+  height: 48px;
+  background: #f59e0b;
+  font-size: 1.4rem;
+}
+
+.rating-stars {
+  margin-bottom: 12px;
+  font-size: 2rem;
+  cursor: pointer;
+  user-select: none;
+}
+
+.rating-stars i {
+  transition: color 0.1s;
+}
+
+.btn-submit.yellow {
+  background: #f59e0b;
+}
+
+.btn-submit.yellow:hover {
+  background: #d97706;
+}
+
+.review-summary-box {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: #fffbeb;
+  border-radius: 12px;
+  border: 1px solid #fde68a;
+  margin-bottom: 20px;
+}
+
+.review-avg {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #d97706;
+}
+
+.review-count {
+  color: #6b7280;
+  font-size: 0.95rem;
+}

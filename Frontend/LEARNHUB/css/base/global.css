@@ -1,0 +1,76 @@
+/* global.css - Đã hoàn thiện + đảm bảo chữ trong nút bằng nhau */
+
+:root {
+  --primary: #3b82f6;
+  --primary-dark: #2563eb;
+  --gray: #64748b;
+  --light: #f8fafc;
+  --dark: #1e293b;
+  --success: #10b981;
+}
+
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family: system-ui, sans-serif;
+  background: var(--light);
+  color: var(--dark);
+  line-height: 1.6;
+}
+
+.container { max-width: 1280px; margin: 0 auto; padding: 0 1.5rem; }
+
+a { text-decoration: none; color: inherit; }
+
+/* Nút - Đã chỉnh để chữ và nút đứng bằng nhau */
+.btn {
+  display: inline-flex;               /* Dùng flex để căn giữa hoàn hảo */
+  align-items: center;                /* Căn giữa theo chiều dọc */
+  justify-content: center;            /* Căn giữa theo chiều ngang */
+  min-height: 48px;                   /* Chiều cao tối thiểu cố định cho mọi nút */
+  padding: 0.75rem 1.5rem;            /* Padding cố định */
+  background: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;                    /* Font-size cố định */
+  line-height: 1.5;                   /* Line-height cố định */
+  white-space: nowrap;                /* Không cho text xuống dòng */
+  text-align: center;                 /* Đảm bảo text căn giữa */
+  transition: background 0.2s, transform 0.2s;
+}
+
+.btn:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+/* Card */
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  overflow: hidden;
+  transition: transform 0.2s;
+}
+
+.card:hover { transform: translateY(-4px); }
+
+/* Badge */
+.badge {
+  padding: 0.35rem 0.8rem;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px; /* Đảm bảo badge cũng bằng nhau nếu cần */
+  text-align: center;
+}
+
+.badge.easy    { background: #d1fae5; color: #065f46; }
+.badge.medium  { background: #fef3c7; color: #92400e; }
+.badge.hard    { background: #fee2e2; color: #991b1b; }

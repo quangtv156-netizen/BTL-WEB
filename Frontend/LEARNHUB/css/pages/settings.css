@@ -1,0 +1,67 @@
+/* settings.css - dùng cho html/settings.html (user) */
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: "Segoe UI", sans-serif; background: #f1f5f9; color: #1e293b; }
+
+.container { display: flex; gap: 40px; padding: 40px 120px; }
+.content { flex: 1; }
+.content h2 { margin-bottom: 20px; }
+
+.card {
+  background: #fff; padding: 25px; border-radius: 16px;
+  margin-bottom: 25px; box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+}
+.card h3 { font-size: 16px; margin-bottom: 18px; }
+
+input[type=password] {
+  width: 100%; padding: 12px 14px; border-radius: 10px;
+  border: 1px solid #e2e8f0; background: #f8fafc;
+  margin-bottom: 15px; font-size: 14px;
+}
+input[type=password]:focus { outline: none; border: 1px solid #2563eb; background: #fff; }
+
+.btn-primary {
+  width: 100%; padding: 12px; border: none; border-radius: 10px;
+  background: #2563eb; color: #fff; font-weight: 600; cursor: pointer;
+}
+.btn-primary:hover { opacity: 0.9; }
+
+.btn-danger {
+  border: 1px solid #ef4444; background: #fff; color: #ef4444;
+  padding: 10px 16px; border-radius: 10px; cursor: pointer;
+}
+.btn-danger:hover { background: #ef4444; color: #fff; }
+
+.card label {
+  display: flex; justify-content: space-between;
+  align-items: center; padding: 12px 0;
+  font-size: 14px; color: #475569;
+}
+
+.card input[type="checkbox"] {
+  appearance: none; width: 42px; height: 22px;
+  background: #cbd5e1; border-radius: 20px;
+  position: relative; cursor: pointer; transition: 0.3s;
+}
+.card input[type="checkbox"]::before {
+  content: ""; position: absolute;
+  width: 18px; height: 18px; background: #fff;
+  border-radius: 50%; top: 2px; left: 2px; transition: 0.3s;
+}
+.card input[type="checkbox"]:checked { background: #2563eb; }
+.card input[type="checkbox"]:checked::before { transform: translateX(20px); }
+
+.danger-zone { border: 1px solid #fecaca; background: #fff5f5; }
+.danger-zone h3 { color: #ef4444; }
+
+/* Dark mode */
+body.dark { background: #0f172a; color: #f1f5f9; }
+body.dark .navbar { background: #1e293b; border-bottom: 1px solid #334155; }
+body.dark .profile-card,
+body.dark .menu,
+body.dark .card,
+body.dark .dropdown { background: #1e293b; color: #f1f5f9; }
+body.dark input[type=password] { background: #334155; color: #fff; border: 1px solid #475569; }
+body.dark .nav-links a,
+body.dark .menu a { color: #cbd5e1; }
+body.dark .menu a:hover { background: #334155; }

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên hệ - LearnHub</title>
+    <link rel="stylesheet" href="../css/base/global.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/pages/contact.css">
+</head>
+<body>
+<script src="../js/header.js"></script>
+<script src="../js/auth.js"></script>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div><h4 id="profileName"></h4><p id="profileEmail"></p></div>
+                </div>
+                <div class="profile-item"><i class="fa-regular fa-user"></i> <a href="profile.html">Hồ sơ cá nhân</a></div>
+                <div class="profile-item"><i class="fa-regular fa-bookmark"></i> <a href="my-courses.html">Khóa học đã đăng ký</a></div>
+                <div class="profile-item"><i class="fa-regular fa-chart-bar"></i> <a href="progress.html">Tiến Độ Học Tập</a></div>
+                <div class="profile-item"><i class="fa-regular fa-heart"></i> <a href="favorites.html">Khóa Học Yêu Thích</a></div>
+                <div class="profile-item"><i class="fa-regular fa-gear"></i> <a href="settings.html">Cài Đặt tài khoản</a></div>
+                <div class="profile-item logout" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- HERO -->
+<section class="contact-hero">
+    <h1>Liên hệ với chúng tôi</h1>
+    <p>Chúng tôi luôn sẵn sàng hỗ trợ bạn. Đừng ngại liên hệ!</p>
+</section>
+
+<!-- CARDS -->
+<div class="contact-cards">
+    <div class="contact-card">
+        <div class="card-icon">📧</div>
+        <h3>Email</h3>
+        <p>Gửi email cho chúng tôi</p>
+        <a href="mailto:quangtv156@gmail.com">quangtv156@gmail.com</a>
+    </div>
+    <div class="contact-card">
+        <div class="card-icon">📞</div>
+        <h3>Hotline</h3>
+        <p>Hỗ trợ trực tiếp trong giờ làm việc</p>
+        <a href="tel:0369075125">0369 075 125</a>
+    </div>
+    <div class="contact-card">
+        <div class="card-icon">📍</div>
+        <h3>Địa chỉ</h3>
+        <p>Văn phòng chính của LearnHub</p>
+        <span>Hà Nội, Việt Nam</span>
+    </div>
+    <div class="contact-card">
+        <div class="card-icon">🕐</div>
+        <h3>Giờ làm việc</h3>
+        <p>Thứ 2 – Thứ 6</p>
+        <span>08:00 – 17:00</span>
+    </div>
+</div>
+
+<!-- DETAIL SECTION -->
+<div class="contact-detail">
+    <div class="detail-left">
+        <div class="faq-list">
+            <h3>Câu hỏi thường gặp</h3>
+            <div class="faq-item">
+                <strong>🎓 Làm thế nào để đăng ký khóa học?</strong>
+                <p>Tạo tài khoản, tìm khóa học phù hợp và bấm "Đăng ký khóa học".</p>
+            </div>
+            <div class="faq-item">
+                <strong>🔑 Tôi quên mật khẩu thì phải làm gì?</strong>
+                <p>Liên hệ email hỗ trợ để được cấp lại mật khẩu.</p>
+            </div>
+            <div class="faq-item">
+                <strong>📱 LearnHub có ứng dụng di động không?</strong>
+                <p>Hiện tại LearnHub đang phát triển trên nền web, ứng dụng di động sẽ ra mắt trong thời gian tới.</p>
+            </div>
+            <div class="faq-item">
+                <strong>🤝 Tôi muốn trở thành giảng viên?</strong>
+                <p>Gửi email với tiêu đề "Đăng ký giảng viên" kèm thông tin và lĩnh vực chuyên môn của bạn.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="detail-right">
+        <div class="social-box">
+            <h2>Kết nối với chúng tôi</h2>
+            <p>Theo dõi LearnHub trên các mạng xã hội để cập nhật khóa học mới và tin tức mới nhất.</p>
+            <a href="https://www.facebook.com/quangdt1406/" target="_blank" class="social-btn facebook">
+                <span>📘</span> Facebook
+            </a>
+            <a href="https://github.com/quangtv156-netizen" target="_blank" class="social-btn github">
+                <span>🐙</span> GitHub
+            </a>
+        </div>
+
+        <div class="response-box">
+            <h3>⏱ Thời gian phản hồi</h3>
+            <div class="response-item">
+                <span>Email</span>
+                <strong>Trong vòng 24 giờ</strong>
+            </div>
+            <div class="response-item">
+                <span>Hotline</span>
+                <strong>Trong giờ làm việc</strong>
+            </div>
+            <div class="response-item">
+                <span>Facebook</span>
+                <strong>Trong vòng 2 giờ</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/main.js"></script>
+</body>
+</html>

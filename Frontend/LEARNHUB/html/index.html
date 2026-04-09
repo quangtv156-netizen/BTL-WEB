@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LearnHub - Học mọi lúc, mọi nơi</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/base/global.css">
+    <link rel="stylesheet" href="../css/components/cards.css">
+    <link rel="stylesheet" href="../css/components/buttons.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/pages/home.css">
+</head>
+<body>
+<script src="../js/auth.js"></script>
+
+<header class="navbar">
+    <div class="nav-container">
+
+        <!-- Logo bên trái -->
+        <div class="logo">
+            <span>📘</span> LearnHub
+        </div>
+
+        <!-- Menu ở giữa -->
+        <nav class="nav-menu">
+            <a href="index.html">Trang chủ</a>
+            <a href="courses.html">Khóa học</a>
+            <a href="about.html">Giới thiệu</a>
+            <a href="contact.html">Liên hệ</a>
+        </nav>
+
+        <!-- Nút Đăng nhập + Đăng ký -->
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+
+        <!-- User menu khi đã đăng nhập -->
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div>
+                        <h4 id="profileName"></h4>
+                        <p id="profileEmail"></p>
+                    </div>
+                </div>
+
+                <div class="profile-item">
+                    <i class="fa-regular fa-user"></i>
+                    <a href="profile.html">Hồ sơ cá nhân</a>
+                </div>
+
+                <div class="profile-item">
+                    <i class="fa-regular fa-bookmark"></i>
+                    <a href="my-courses.html">Khóa học đã đăng ký</a>
+                </div>
+
+                <div class="profile-item">
+                    <i class="fa-regular fa-chart-bar"></i>
+                    <a href="progress.html">Tiến Độ Học Tập</a>
+                </div>
+
+                <div class="profile-item">
+                    <i class="fa-regular fa-heart"></i>
+                    <a href="favorites.html">Khóa Học Yêu Thích</a>
+                </div>
+
+                <div class="profile-item">
+                    <i class="fa-regular fa-gear"></i>
+                    <a href="settings.html">Cài Đặt Tài Khoản</a>
+                </div>
+
+                <div class="profile-item logout" id="logoutBtn">
+                    <i class="fa-solid fa-right-from-bracket"></i> Đăng xuất
+                </div>
+
+            </div><!-- /.profile-dropdown -->
+        </div><!-- /.user-menu -->
+
+    </div><!-- /.nav-container -->
+</header>
+
+<!-- Hero -->
+<section class="hero">
+    <h1>Học mọi lúc, mọi nơi</h1>
+    <p>Khám phá hàng nghìn khóa học chất lượng cao và phát triển kỹ năng mỗi ngày.</p>
+    <div class="search-bar">
+        <input
+                type="text"
+                id="searchInput"
+                aria-label="Tìm kiếm khóa học"
+                placeholder="Nhập tên khóa học hoặc từ khóa..."
+        >
+        <button id="searchBtn" class="btn btn-primary">Tìm kiếm</button>
+    </div>
+    <div class="action-buttons">
+        <a href="courses.html" class="action-btn btn-explore">Khám phá khóa học</a>
+    </div>
+</section>
+
+<!-- Khóa học nổi bật -->
+<section class="featured-courses container">
+    <h2>Khóa học nổi bật</h2>
+    <div class="course-grid" id="featuredGrid"></div>
+</section>
+
+<script src="../js/auth.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/home.js"></script>
+</body>
+</html>

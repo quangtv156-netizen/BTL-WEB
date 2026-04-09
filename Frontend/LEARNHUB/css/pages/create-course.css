@@ -1,0 +1,268 @@
+/* ================================
+   CREATE COURSE PAGE - FULL CSS
+   (gộp từ inline style + file css)
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Inter, Arial;
+}
+
+body {
+  background: #f8fafc;
+}
+
+.nav-menu a {
+  text-decoration: none;
+}
+
+.profile-dropdown a {
+  text-decoration: none;
+}
+
+/* ================================
+   LAYOUT
+================================ */
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 50px 20px;
+}
+
+/* ================================
+   FORM CARD
+================================ */
+.form-card {
+  width: 100%;
+  max-width: 720px;
+  background: #fff;
+  padding: 35px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0,0,0,.05);
+}
+
+.form-card h2 {
+  margin-bottom: 5px;
+}
+
+.form-card p {
+  color: #64748b;
+  font-size: 14px;
+  margin-bottom: 25px;
+}
+
+.form-group {
+  margin-bottom: 18px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+textarea {
+  height: 110px;
+  resize: none;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: #2563eb;
+}
+
+.row {
+  display: flex;
+  gap: 15px;
+}
+
+.row .form-group {
+  flex: 1;
+}
+
+/* ================================
+   INSTRUCTOR INPUT
+================================ */
+.instructor-input-wrapper {
+  position: relative;
+}
+
+.instructor-avatar {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.instructor-input {
+  background: #f8fafc;
+  color: #374151;
+  cursor: default;
+  padding-left: 44px !important;
+  padding-right: 36px !important;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+}
+
+.instructor-lock-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 13px;
+  color: #94a3b8;
+}
+
+.instructor-note {
+  color: #94a3b8;
+  font-size: 12px;
+  margin-top: 5px;
+  display: block;
+}
+
+/* ================================
+   UPLOAD BOX
+================================ */
+.upload-box {
+  border: 2px dashed #e2e8f0;
+  border-radius: 10px;
+  padding: 40px;
+  text-align: center;
+  cursor: pointer;
+  color: #64748b;
+  transition: .3s;
+}
+
+.upload-box:hover {
+  border-color: #2563eb;
+  background: #f1f5ff;
+}
+
+.upload-box i {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.preview-img {
+  margin-top: 15px;
+  max-width: 100%;
+  border-radius: 8px;
+}
+
+/* ================================
+   TOGGLE SWITCH
+================================ */
+.toggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+}
+
+.switch {
+  position: relative;
+  width: 40px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 0;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #cbd5e1;
+  border-radius: 20px;
+  transition: .3s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  left: 2px;
+  bottom: 2px;
+  background: #fff;
+  border-radius: 50%;
+  transition: .3s;
+}
+
+.switch input:checked + .slider {
+  background: #2563eb;
+}
+
+.switch input:checked + .slider:before {
+  transform: translateX(20px);
+}
+
+/* ================================
+   BUTTONS
+================================ */
+.button-group {
+  display: flex;
+  gap: 10px;
+  margin-top: 25px;
+}
+
+.btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary {
+  background: #2563eb;
+  color: #fff;
+}
+
+.btn-secondary {
+  background: #e2e8f0;
+}
+
+.btn-primary:hover {
+  background: #1d4ed8;
+}
+
+.btn-secondary:hover {
+  background: #cbd5e1;
+}
