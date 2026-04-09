@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Học khóa học - LearnHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../css/pages/learn-course.css">
+</head>
+<body>
+
+<div class="header">
+    <div class="left">
+        <div class="logo">LearnHub</div>
+        <div class="course-title" id="courseTitle">Đang tải...</div>
+    </div>
+    <div class="right">
+        <div class="progress-text" id="progressText">0/0 bài</div>
+        <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+        <a href="#" class="back-btn" id="backBtn"><i class="fas fa-arrow-left"></i> Quay lại khóa học</a>
+    </div>
+</div>
+
+<div class="main">
+    <div class="video-area" id="videoPlayer">
+        <div style="color:#94a3b8">Chọn bài học để bắt đầu</div>
+    </div>
+    <div class="sidebar">
+        <h3>Nội dung khóa học</h3>
+        <div id="lessonList"></div>
+    </div>
+</div>
+
+<script src="https://www.youtube.com/iframe_api"></script>
+<script src="../js/learn-course.js"></script>
+</body>
+</html>

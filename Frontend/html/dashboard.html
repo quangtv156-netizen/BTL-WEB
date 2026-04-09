@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - LearnHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/pages/dashboard.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+</head>
+<body>
+<script src="../js/header.js"></script>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-courses.html">Khóa học</a>
+            <a href="manage-lessons.html">Bài giảng</a>
+            <a href="manage-users.html">Người dùng</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div><h4 id="profileName"></h4><p id="profileEmail"></p></div>
+                </div>
+                <div class="profile-item"><i class="fa-regular fa-user"></i> <a href="admin/profile.html">Hồ sơ cá nhân</a></div>
+                <div class="profile-item logout" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="dashboard">
+    <div class="top-bar">
+        <div>
+            <h1>Tổng quan <span>hệ thống</span></h1>
+            <p>Thống kê nhanh về hoạt động nền tảng.</p>
+        </div>
+        <div class="date-box" id="currentDate"></div>
+    </div>
+
+    <div class="stats">
+        <div class="card stat">
+            <div class="stat-header">
+                <div class="icon blue"><i class="fas fa-book"></i></div>
+                <span class="badge green">↑ Mới</span>
+            </div>
+            <h2 id="courseCount">0</h2>
+            <p>Khóa học đang hoạt động</p>
+        </div>
+        <div class="card stat">
+            <div class="stat-header">
+                <div class="icon green"><i class="fas fa-user-graduate"></i></div>
+                <span class="badge green">+1 tuần</span>
+            </div>
+            <h2 id="studentCount">0</h2>
+            <p>Học viên đã đăng ký</p>
+        </div>
+        <div class="card stat">
+            <div class="stat-header">
+                <div class="icon purple"><i class="fas fa-chalkboard-teacher"></i></div>
+                <span class="badge gray">Ổn định</span>
+            </div>
+            <h2 id="instructorCount">0</h2>
+            <p>Giảng viên hoạt động</p>
+        </div>
+    </div>
+
+    <div class="content" style="align-items:stretch">
+        <div class="card big" style="display:flex;flex-direction:column">
+            <div class="card-header" style="display:flex;justify-content:space-between;align-items:center">
+                <h3 style="margin:0">🏆 Top khóa học nhiều học viên nhất</h3>
+                <span style="font-size:13px;color:#6b7280">Top 5</span>
+            </div>
+            <div id="topCoursesList" style="margin-top:8px"></div>
+        </div>
+        <div class="card side" style="display:flex;flex-direction:column;max-height:420px">
+            <div class="card-header" style="flex-shrink:0"><h3>Hoạt động gần đây</h3></div>
+            <ul class="activity" id="activityList" style="overflow-y:auto;flex:1;margin:0;padding:0 4px 0 0"></ul>
+        </div>
+    </div>
+
+    <div class="content">
+        <div class="card" style="flex:1">
+            <div class="card-header"><h3>Danh sách khóa học</h3></div>
+            <div id="courseList"></div>
+        </div>
+    </div>
+</main>
+
+<script src="../js/dashboard.js"></script>
+</body>
+</html>

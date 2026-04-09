@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Đăng nhập / Đăng ký - LearnHub</title>
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <!-- CSS -->
+  <link rel="stylesheet" href="../css/base/global.css">
+  <link rel="stylesheet" href="../css/components/forms.css">
+  <link rel="stylesheet" href="../css/pages/login.css">
+</head>
+
+<body class="auth-page">
+
+  <div class="auth-container">
+
+    <!-- Tabs -->
+    <div class="tabs">
+      <button class="tab active" data-tab="login">Đăng nhập</button>
+      <button class="tab" data-tab="signup">Đăng ký</button>
+    </div>
+
+    <!-- ================= LOGIN ================= -->
+    <div id="login" class="form-content">
+
+      <h2>Chào mừng trở lại!</h2>
+      <p>Đăng nhập để tiếp tục học tập</p>
+
+      <form id="loginForm">
+
+        <div class="form-group">
+          <label for="loginEmail">Email</label>
+          <input 
+            type="email" 
+            id="loginEmail" 
+            placeholder="example@email.com"
+            required>
+        </div>
+
+        <div class="form-group password-wrapper">
+          <label for="loginPass">Mật khẩu</label>
+          <input 
+            type="password" 
+            id="loginPass"
+            placeholder="••••••••"
+            required>
+<span class="eye">
+  <i class="fa-regular fa-eye"></i>
+</span>        </div>
+
+        <!-- Remember + Forgot -->
+        <div class="extra-options">
+          <label>
+            <input type="checkbox"> Ghi nhớ đăng nhập
+          </label>
+          <a href="#">Quên mật khẩu?</a>
+        </div>
+
+        <button type="submit" class="btn btn-full">
+          Đăng nhập
+        </button>
+
+      </form>
+    </div>
+
+
+    <!-- ================= SIGNUP ================= -->
+    <div id="signup" class="form-content" style="display:none;">
+
+      <h2>Tạo tài khoản mới</h2>
+      <p>Tham gia LearnHub ngay hôm nay</p>
+
+      <form id="signupForm">
+
+        <div class="form-group">
+          <label for="fullName">Họ và tên</label>
+          <input type="text" id="fullName" required>
+        </div>
+
+        <div class="form-group">
+          <label for="signupEmail">Email</label>
+          <input type="email" id="signupEmail" required>
+        </div>
+
+        <div class="form-group password-wrapper">
+          <label for="signupPass">Mật khẩu</label>
+          <input type="password" id="signupPass" required>
+<span class="eye">
+  <i class="fa-regular fa-eye"></i>
+</span>        </div>
+
+        <div class="form-group">
+          <label for="role">Vai trò</label>
+          <select id="role" required>
+            <option value="">-- Chọn vai trò --</option>
+            <option value="student">Học viên</option>
+            <option value="instructor">Giảng viên</option>
+          </select>
+        </div>
+
+        <button type="submit" class="btn btn-full">
+          Tạo tài khoản
+        </button>
+
+      </form>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script src="../js/login.js"></script>
+
+</body>
+</html>

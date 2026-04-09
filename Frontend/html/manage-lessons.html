@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản lý bài giảng - LearnHub</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="../css/layout/header.css">
+    <link rel="stylesheet" href="../css/pages/manage-lessons.css">
+</head>
+<body>
+<script src="../js/header.js"></script>
+
+<header class="navbar">
+    <div class="nav-container">
+        <div class="logo"><span>📘</span> LearnHub</div>
+        <nav class="nav-menu">
+            <a href="dashboard.html">Dashboard</a>
+            <a href="manage-courses.html">Khóa học</a>
+            <a href="manage-lessons.html">Bài giảng</a>
+            <a href="manage-users.html">Người dùng</a>
+        </nav>
+        <div class="auth-buttons" id="authButtons">
+            <a href="login.html" class="btn-login">Đăng nhập</a>
+            <a href="login.html" class="btn-signup">Đăng ký</a>
+        </div>
+        <div class="user-menu" id="userMenu" style="display:none;">
+            <div class="avatar" id="userAvatar"></div>
+            <div class="profile-dropdown" id="profileDropdown">
+                <div class="profile-header">
+                    <div class="avatar" id="dropdownAvatar"></div>
+                    <div><h4 id="profileName"></h4><p id="profileEmail"></p></div>
+                </div>
+                <div class="profile-item"><i class="fa-regular fa-user"></i> <a href="admin/profile.html">Hồ sơ cá nhân</a></div>
+                <div class="profile-item logout" id="logoutBtn"><i class="fa-solid fa-right-from-bracket"></i> Đăng xuất</div>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="page-title">
+        <h1>Quản lý bài giảng</h1>
+        <p>Thêm, chỉnh sửa và gán bài giảng cho từng khóa học</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+        <div class="form-group">
+            <label>Khóa học <span class="required">*</span></label>
+            <select id="lessonCourse" required>
+                <option value="">-- Chọn khóa học --</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Chương <span class="required">*</span></label>
+                <input type="text" id="lessonChapter" placeholder="Ví dụ: Phần 1: Giới thiệu React" required>
+            </div>
+            <div class="col col-order">
+                <label>Thứ tự trong chương</label>
+                <input type="number" id="orderInChapter" min="1" placeholder="1, 2, 3..." value="1">
+            </div>
+        </div>
+        <div class="form-group">
+            <label>Tiêu đề bài giảng <span class="required">*</span></label>
+            <input type="text" id="lessonTitle" required placeholder="Ví dụ: React là gì?">
+        </div>
+        <div class="form-group">
+            <label>Mô tả bài giảng</label>
+            <textarea id="lessonDesc" rows="4" placeholder="Mô tả ngắn gọn về nội dung bài học..."></textarea>
+        </div>
+        <div class="form-group">
+            <label>Link video bài giảng <span class="required">*</span></label>
+            <input type="url" id="lessonVideoUrl" placeholder="https://youtu.be/VIDEO_ID hoặc link mp4" required>
+            <small>Hỗ trợ YouTube embed hoặc link video trực tiếp (mp4)</small>
+            <div id="videoPreview" class="video-preview hidden"></div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <label>Thời lượng (mm:ss)</label>
+                <input type="text" id="lessonDuration" placeholder="ví dụ: 12:45">
+            </div>
+            <div class="col">
+                <label>Trạng thái</label>
+                <select id="lessonStatus">
+                    <option value="published">Xuất bản</option>
+                    <option value="draft">Nháp</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-actions">
+            <button class="btn btn-danger" onclick="deleteCurrent()">
+                <i class="fas fa-trash"></i> Xóa bài giảng
+            </button>
+            <div class="form-actions-right">
+                <button class="btn btn-secondary" onclick="clearForm()">Hủy</button>
+                <button class="btn btn-primary" onclick="saveLesson()">
+                    <i class="fas fa-save"></i> Lưu bài giảng
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="card">
+        <div class="table-header">
+            <h3 id="tableTitle">Danh sách bài giảng</h3>
+            <select id="filterChapter" onchange="loadLessons()">
+                <option value="">-- Tất cả chương --</option>
+            </select>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                <tr>
+                    <th class="col-course">Khóa học</th>
+                    <th class="col-chapter">Chương</th>
+                    <th class="col-order">TT</th>
+                    <th class="col-title">Tên bài</th>
+                    <th class="col-dur">Thời lượng</th>
+                    <th class="col-status">Trạng thái</th>
+                    <th class="col-video">Video</th>
+                    <th class="col-updated">Cập nhật</th>
+                    <th class="col-action">Hành động</th>
+                </tr>
+                </thead>
+                <tbody id="lessonTable"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<!-- Modal xem video -->
+<div id="videoModal" class="video-modal">
+    <div class="video-modal-box">
+        <button class="video-modal-close" onclick="closeVideoModal()">✕</button>
+        <div id="videoModalContent" class="video-modal-content"></div>
+    </div>
+</div>
+
+<script src="../js/manage-lessons.js"></script>
+</body>
+</html>

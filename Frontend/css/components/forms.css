@@ -1,0 +1,62 @@
+/* forms.css - Input, select, textarea, label */
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.6rem;
+  font-weight: 500;
+  color: #475569;
+  font-size: 0.95rem;
+}
+
+input,
+select,
+textarea {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+input::placeholder {
+  color: #9ca3af;
+}
+
+.password-wrapper {
+  position: relative;
+}
+
+.eye {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #64748b;
+}
+
+textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+/* Form lỗi */
+.form-error {
+  color: var(--danger);
+  font-size: 0.85rem;
+  margin-top: 0.4rem;
+}

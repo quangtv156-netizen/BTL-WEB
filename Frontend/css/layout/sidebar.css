@@ -1,0 +1,109 @@
+/* sidebar.css - Thanh sidebar cho giảng viên (dashboard, quản lý) */
+
+.sidebar {
+  width: 260px;
+  height: 100vh;
+  background: white;
+  box-shadow: 2px 0 10px rgba(0,0,0,0.05);
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 900;
+  padding-top: 5rem; /* để tránh chồng header */
+  overflow-y: auto;
+  transition: transform 0.3s ease;
+}
+
+.sidebar-header {
+  padding: 1.5rem 1.5rem;
+  border-bottom: 1px solid #e2e8f0;
+  text-align: center;
+}
+
+.sidebar-header h3 {
+  font-size: 1.3rem;
+  color: var(--dark-text);
+  margin: 0;
+}
+
+.sidebar-menu {
+  padding: 1.5rem 0;
+}
+
+.sidebar-menu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-menu li {
+  margin: 0.3rem 0;
+}
+
+.sidebar-menu a {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem 1.5rem;
+  color: #475569;
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+  border-left: 4px solid transparent;
+}
+
+.sidebar-menu a:hover,
+.sidebar-menu a.active {
+  background: rgba(59, 130, 246, 0.08);
+  color: var(--primary);
+  border-left-color: var(--primary);
+}
+
+.sidebar-menu .icon {
+  font-size: 1.3rem;
+  width: 24px;
+  text-align: center;
+}
+
+/* Mobile - Sidebar ẩn, mở bằng nút hamburger */
+@media (max-width: 992px) {
+  .sidebar {
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  /* Overlay khi mở sidebar trên mobile */
+  .sidebar-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 800;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s;
+  }
+
+  .sidebar-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+/* Sidebar toggle button (cho mobile) */
+.sidebar-toggle {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  cursor: pointer;
+  color: var(--dark-text);
+}
+
+@media (max-width: 992px) {
+  .sidebar-toggle {
+    display: block;
+  }
+}

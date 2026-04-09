@@ -1,0 +1,72 @@
+/* ==========================================================================
+   main.css - Master stylesheet của LearnHub
+   ========================================================================== */
+
+/* 1. Import tất cả các phần CSS theo thứ tự hợp lý */
+
+/* Base & Global (luôn import đầu tiên) */
+@import url('base/global.css');
+
+/* Layout (cấu trúc lớn: header, sidebar, footer nếu có) */
+@import url('layout/header.css');
+@import url('layout/sidebar.css');
+
+/* Components (các thành phần tái sử dụng) */
+@import url('components/buttons.css');
+@import url('components/cards.css');
+@import url('components/forms.css');
+@import url('components/badges.css');
+@import url('components/modals.css');
+@import url('components/pagination.css');
+
+/* Pages (style riêng cho từng trang) */
+@import url('pages/login.css');
+@import url('pages/courses.css');
+@import url('pages/course-detail.css');
+@import url('pages/create-course.css');
+@import url('pages/dashboard.css');
+@import url('pages/manage-courses.css');
+
+/* ==========================================================================
+   Global overrides & bổ sung chung (nếu cần)
+   ========================================================================== */
+
+/* Font mặc định cho toàn site (nếu chưa có trong global) */
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* Container chính */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Smooth scroll cho toàn site */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection highlight */
+::selection {
+  background: var(--primary);
+  color: white;
+}
+
+/* Responsive breakpoints bổ sung (nếu cần override) */
+@media (max-width: 1200px) {
+  .container { padding: 0 2rem; }
+}
+
+@media (max-width: 768px) {
+  .container { padding: 0 1rem; }
+}
+
+/* Utility classes dùng chung */
+.text-primary    { color: var(--primary); }
+.text-center     { text-align: center; }
+.mt-2            { margin-top: 2rem; }
+.mb-3            { margin-bottom: 3rem; }
+.py-4            { padding: 4rem 0; }
+.hidden          { display: none; }
